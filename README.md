@@ -64,8 +64,10 @@ Here we used object oriented approach to develope this simulator.
 4) global pointer data
 5) 
 
-**sample output of bubble sort:-**
+**Sample output of bubble sort:-**
 
 ![image](https://user-images.githubusercontent.com/93343451/157014824-21c45895-dcf6-4544-8520-6cfd20d35c6d.png)
 
 ![image](https://user-images.githubusercontent.com/93343451/157014960-01ca1f2a-8602-45da-bb13-6af0dc4eeec6.png)
+
+#The program finds the largest number and stores it .   
