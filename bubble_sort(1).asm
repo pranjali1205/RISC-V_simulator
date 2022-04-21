@@ -1,86 +1,26 @@
-
-.data
-array:  .word 5, 3, 1, 6, 2, 8, 9, 10, 1, 8,12
-
-.text
-.globl main
-main:
-	la $s0, array
-	addi $s1, $zero, 10
-	j bubbleSort
-	
-bubbleSort:
-	beq  $zero, $s1, out
-	add  $s2, $s1, $zero
-	j loop
-
-loop:
-	beq $zero, $s2, jmp
-	lw  $t0, 0($s0)
-	lw  $t1, 4($s0)
-
-	slt $t2, $t0, $t1
-	bne $zero, $t2, jump
-	sw  $t0, 4($s0)
-	sw  $t1, 0($s0)
-	j jump
-
-jump:
-	addi $s0, $s0, 4
-	li $t5 ,1
-	sub $s2, $s2, $t5 
-	j loop
-
-jmp:
-	li $t6 ,1
-	sub $s1, $s1, $t6
-	la $s0, array
-	j bubbleSort 
-	
-out:
-	addi $s1, $zero, 11
-	j print
-	
-print:
-	
-	lw $t5, 0($s0)
-    sw $t5, 0($gp)
-	addi $s0, $s0, 4
-    lw $t5, 0($s0)
-    sw $t5, 4($gp)
-	addi $s0, $s0, 4
-    lw $t5, 0($s0)
-    sw $t5, 8($gp)
-	addi $s0, $s0, 4
-    lw $t5, 0($s0)
-    sw $t5, 12($gp)
-	addi $s0, $s0, 4
-    lw $t5, 0($s0)
-    sw $t5, 16($gp)
-	addi $s0, $s0, 4
-    lw $t5, 0($s0)
-    sw $t5, 20($gp)
-	addi $s0, $s0, 4
-    lw $t5, 0($s0)
-    sw $t5, 24($gp)
-	addi $s0, $s0, 4
-    lw $t5, 0($s0)
-    sw $t5, 28($gp)
-	addi $s0, $s0, 4
-    lw $t5, 0($s0)
-    sw $t5, 32($gp)
-	addi $s0, $s0, 4
-	lw $t5, 0($s0)
-    sw $t5, 36($gp)
-	addi $s0, $s0, 4
-    lw $t5, 0($s0)
-    sw $t5, 40($gp)
-	addi $s0, $s0, 4
-    
-	j jmpp
-
-jmpp:
-	li $v0,10
-    syscall
+array 7 8 4 1 5
+addi R10, R10, 4
+addi R4, R4, 1
+sub R8, R8, R4
+addi R31, R31, 0
+sub R9, R31, R4
+beq R8, R10, 28
+addi R8, R8, 1
+j 10
+addi R9, R9, 1   
+sub R11, R10, R8  
+beq R9, R11, 6
+addi R12, R9, 1
+lw R13, R9
+lw R14, R12
+slt R16, R13, R14
+beq R16, R31, 19
+j 10
+addi R15, R13, 0     
+addi R13, R14, 0
+addi R14, R15, 0
+sw R13, R9
+sw R14, R12
+j 10
 
 
